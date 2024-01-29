@@ -1,8 +1,11 @@
 const express = require('express');
 const { initModels } = require('./models.js');
+const { initUsers } = require('./users.js');
+const { initThoughts } = require('./thoughts.js');
 
 const port = 3000;
 const app = express();
+app.use(express.json());
 
 async function initApp() {
 
@@ -14,3 +17,5 @@ async function initApp() {
 }
 
 initApp();
+initUsers(app);
+initThoughts(app);
